@@ -33,4 +33,27 @@ IPv6 support
 
 Client:
 
-Android: Install SSRR for android
+Way1: Android: Install SSRR for android
+
+Way2: IOS -> Android ->Server
+
+IOS -> Android: WIFI setting
+
+* connect to Android Hotspot,
+* and turn on http proxy
+
+Android ->Server: 
+
+* Turn on hotspot
+* Turn on socks client to shadowsocks server
+* Turn on http2socks server
+
+```bash
+python local.py
+# It will use config ../user-config.json, listen at 1080port
+
+pip install pproxy
+pproxy -l http://:8080 -r socks5://127.0.0.1:1080 -vv
+# It will create a http proxt at port 8080 and forward to socks at 1080
+
+```
